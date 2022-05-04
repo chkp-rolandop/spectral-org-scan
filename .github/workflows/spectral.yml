@@ -32,4 +32,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Scan
-        run: spectral github --ok -k org -t $GITHUB_TOKEN chkp-rolandop --include-tags base,audit
+        run: spectral github -k org -t $GITHUB_TOKEN chkp-rolandop --include-tags base,audit
