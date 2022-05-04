@@ -10,10 +10,18 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      gitorg:
+        description: 'GitHub Organization'
+        required: true
+        type: string
+        default: 'CheckPointSW-Community'
+        
 # Spectral DSN
 env:
   SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
   GITHUB_TOKEN: ${{ secrets.CHKP_GITHUB_TOKEN }}
+  GIT_ORG: ${{ inputs.gitorg }}
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,4 +40,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Scan
-        run: spectral github --ok -k org -t $GITHUB_TOKEN CheckPointSW-Community --include-tags base,audit
+        run: spectral github --ok -k org -t $GITHUB_TOKEN $GIT_ORG --include-tags base,audit
