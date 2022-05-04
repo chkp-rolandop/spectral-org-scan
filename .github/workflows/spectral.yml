@@ -36,7 +36,12 @@ jobs:
         uses: spectralops/spectral-github-action@v1
         with:
           spectral-dsn: ${{ secrets.SPECTRAL_DSN }}
+      
+      - name: Get .spectral
+        uses: actions/checkout@v3
+        with:
+          path: .spectral
 
-      # Runs a set of commands using the runners shell
+      # Runs a spectral scan against defined org
       - name: Scan
         run: spectral github --ok -k org -t $GITHUB_TOKEN ${{ github.event.inputs.gitorg }} --include-tags base,audit
