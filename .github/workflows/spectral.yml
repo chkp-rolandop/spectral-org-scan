@@ -13,7 +13,7 @@ on:
 # Spectral DSN
 env:
   SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
-  GITHUB_TOKEN: $(( secrets.CHKP_GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.CHKP_GITHUB_TOKEN }}
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
