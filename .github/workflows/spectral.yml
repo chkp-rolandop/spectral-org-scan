@@ -40,6 +40,7 @@ jobs:
       - name: Get .spectral
         uses: actions/checkout@v3
         with:
+          repo: chkp-rolandop/dotspectral
           path: .spectral
 
       # Runs a spectral scan against defined org
