@@ -21,8 +21,7 @@ on:
 env:
   SPECTRAL_DSN: ${{ secrets.SPECTRAL_DSN }}
   GITHUB_TOKEN: ${{ secrets.CHKP_GITHUB_TOKEN }}
-  GIT_ORG: ${{ github.event.inputs.gitorg }}
-  
+   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -40,4 +39,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Scan
-        run: spectral github --ok -k org -t $GITHUB_TOKEN $GIT_ORG --include-tags base,audit
+        run: spectral github --ok -k org -t $GITHUB_TOKEN ${{ github.event.inputs.gitorg }} --include-tags base,audit
